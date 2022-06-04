@@ -8,14 +8,7 @@
           <q-input type="password" name="password" v-model="password" label="Password" outlined required />
           <q-btn label="Register" type="submit" color="primary"/>
         </q-form>
-        <!-- <div v-if="loading" class="loading">Loading...</div> -->
         <div v-if="users.length > 0">
-          <!-- <h6>Registered users</h6>
-          <q-list dense>
-            <q-item v-for="user in users.slice().reverse()" :key="user.username" dense>
-              {{ user.id }}. {{ user.username }}
-            </q-item>
-          </q-list> -->
           <div class="q-pa-md">
             <q-table
               title="Registered users"
@@ -28,7 +21,7 @@
       </div>
       <div class="col-6 col-md-1 col-lg-1"></div>
       <div class="col-6 col-md-5 col-lg-4">
-        <h5><span v-if="loggedIn === false">Log In</span><span v-if="loggedIn">Hello, {{ loggedUser.username }}</span></h5>
+        <h5><span v-if="!loggedIn">Log In</span><span v-if="loggedIn">Hello, {{ loggedUser.username }}</span></h5>
         <q-form action="" method="post" @submit.prevent="submitLoginForm" v-if="!loggedIn">
           <q-input name="username2" v-model="username2" label="Username" outlined required />
           <q-input type="password" name="password2" v-model="password2" label="Password" outlined required />
